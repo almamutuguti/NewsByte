@@ -4,10 +4,11 @@ from config import check_api_key # import this function from config.py
 
 class NewsAPIHandler:
     def __init__(self, api_key):
+
         """Initialize the NewsAPIHandler with the provided API key."""
 
         self.api_key = api_key
-        self.base_url = "https://newsapi.org/v2"  # Base URL for News API
+        self.base_url = "https://newsapi.org"  # Base URL for News API
         self.request_count = 0 # a counter to track the number of requests made limit is 100 per day
         self.last_request_time = None  # to track the time of the last request
 
@@ -47,7 +48,8 @@ class NewsAPIHandler:
         except requests.exceptions.RequestException as e:
             # Handle any request exceptions (no internet, network issues, timeouts, server errors, etc.)
             return {"status": "error", "message": f"Request failed: {str(e)}"}
-        
+    
+    
     def get_top_headlines(self, category=None, country ='us', page_size=10):
         """Fetch top headlines from NewsAPI."""
 
@@ -61,6 +63,7 @@ class NewsAPIHandler:
             params['category'] = category
         
         return self.make_request(endpoint, params)
+    
     
     def search_news(self, query, language='en', sort_by='publishedAt', page_size=10):
         """search for news based on query strings"""
@@ -79,7 +82,9 @@ class NewsAPIHandler:
 
         return self.make_request(endpoint, params)
     
+    
     # Create helper method to format the articles
+
 
     def format_article(self, article):
         """Extract and format the info needed from the raw article"""
@@ -103,13 +108,10 @@ class NewsAPIHandler:
             'url': url,
             'publishedAt': published_at
         }
-
+    
     def get_remaining_requests(self):
         """Estimate remaining requests based on free tier limits"""
-        return max(0, 100 - self.request_count)
-
-
+        return max(0, 100 - self.request_count) 
     
 
-        
-
+    

@@ -61,7 +61,6 @@ News Byte is a Python desktop chat bot application that provides users with a co
     ├── chatbot.py             # Natural language processing and conversation logic
     ├── gui.py                 # Tkinter chat interface implementation
     ├── config.py              # Configuration management
-    ├── requirements.txt       # Python dependencies
     ├── .env                   # Environment variables (API key)
     └── README.md              # Project documentation
 
