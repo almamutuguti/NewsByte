@@ -50,6 +50,20 @@ def check_api_key(api_key):
     
     return True, "API key is valid."
 
+def setup_environment():
+    """Check if env file exists and guide the user if not.Returns True if setupis complete false otherwise"""
+    if not os.path.exists('.env'):
+        print("Welcome to News Byte!")
+        print("It looks like you have not set up your API key yet")
+        print("Please create a .env file with the following content:")
+        print("NEWS_API_KEY=your_actual_api_key")
+        print("Get your free API key from: https://newsapi.org/")
+        
+        return False
+    
+    return True
+
+
 # Temporary test code
 # if __name__ == "__main__":
 #     config = load_config()
