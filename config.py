@@ -33,6 +33,8 @@ def load_config():
         'DEBUG_MODE': os.getenv('DEBUG_MODE', 'False').lower() in ('true', '1', 't')
     }
 
+    # dbHOMW=[MY DB]
+
     # print("Final config values:")
     # for key, value in config.items():
     #     print(f"   {key}: {value if key != 'NEWS_API_KEY' else value[:10] + '...'}")
@@ -57,7 +59,7 @@ def setup_environment():
         print("It looks like you have not set up your API key yet")
         print("Please create a .env file with the following content:")
         print("NEWS_API_KEY=your_actual_api_key")
-        print("Get your free API key from: https://newsapi.org/")
+        print("Get your free API key from: https://newsapi.org")
         
         return False
     

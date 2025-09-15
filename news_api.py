@@ -1,21 +1,23 @@
 import requests # to make web requests
 from datetime import datetime, timedelta # Import datetime and timedelta for date manipulation
-from config import check_api_key # import this function from config.py
+# from config import check_api_key # import this function from config.py
+from decouple import config
+
+api_key = config("NEWS_API_KEY")
 
 class NewsAPIHandler:
     def __init__(self, api_key):
 
         """Initialize the NewsAPIHandler with the provided API key."""
-
         self.api_key = api_key
-        self.base_url = "https://newsapi.org"  # Base URL for News API
+        self.base_url = "https://newsapi.org/{}"  # Base URL for News API
         self.request_count = 0 # a counter to track the number of requests made limit is 100 per day
         self.last_request_time = None  # to track the time of the last request
 
         # validate the api key as soon as the handler is created
-        is_valid, message = check_api_key(api_key)
-        if not is_valid:
-            raise ValueError(message)  # Raise an error if the API key is invalid
+        # is_valid, message = check_api_key(api_key)
+        # if not is_valid:
+        #     raise ValueError(message)  # Raise an error if the API key is invalid
         
     def make_request(self, endpoint, params=None):
         """Make a request to the News API.
@@ -28,7 +30,7 @@ class NewsAPIHandler:
         url = f"{self.base_url}{endpoint}"
 
         # add api key to the parameters
-        params['apiKey'] = self.api_key
+        params['apiKey'] = api_key
 
         try:
             # send get request to the API

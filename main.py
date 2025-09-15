@@ -2,6 +2,7 @@ import tkinter as tk
 from gui import NewsChatApp
 from config import load_config, setup_environment, check_api_key  
 import sys
+from decouple import config
 
 
 def main():
@@ -15,6 +16,7 @@ def main():
         if not setup_environment():
             print("Please set up your .env file first")
             input("Press enter to exit...")
+            
             return
         
         # load config from environment vars
