@@ -14,7 +14,7 @@ class NewsChatApp:
         """
 
         self.root = root
-        self.config = config
+        self.config = load_config()
 
         # set up the news api and chatbot
 
