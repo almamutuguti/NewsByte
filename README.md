@@ -32,6 +32,7 @@ A Python desktop chat bot application that provides users with a conversational 
   - Date-based filtering (last 30 days)
 
 ## Tech Stack
+
 | Layer           | Technologies Used       |
 |-----------------|-------------------------|
 | Frontend        | Tkinter (Python GUI)    |
@@ -82,8 +83,8 @@ git clone https://github.com/almamutuguti/NewsByte.git
 
 ## Run the application:
 
- - terminal
-    - python main.py
+  - terminal
+  - python main.py
 
 
 ## Conversation Flow
@@ -119,6 +120,6 @@ Multi-turn conversation capabilities for refined searches
 
 ## Support
 For issues or questions, please reach the developer by email :
-alma.wanjiru@gmail.com
+alma.wanjiru8j@gmail.com
 
 Note: This application requires an internet connection to fetch news data from the NewsAPI service.
